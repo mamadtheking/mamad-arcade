@@ -9,7 +9,7 @@
 </style></head>
 <body><div class="wrap">
 <header class="top"><div class="brand">MAMAD ARCADE<small>دنیای بازی، به سبک ممد! 🎮</small></div><span class="pill">نسخهٔ اول • کاملاً فارسی</span></header>
-<section class="hero"><h1>آماده‌ای رکورد بزنی؟ 🔥</h1><p>به شهربازی اینترنتی ممد خوش اومدی! یک بازی انتخاب کن، بازی کن و رکورد خودت رو بهتر کن. همهٔ بازی‌های این نسخه مستقیماً داخل همین سایت اجرا می‌شن.</p><div class="stats"><div class="stat">موتورهای بازی: <b>۵</b></div><div class="stat">رکوردهای ثبت‌شده: <b id="recordCount">۰</b></div><div class="stat">ترکیب‌های بازی: <b>۵٬۰۰۰</b></div></div></section>
+<section class="hero"><h1>آماده‌ای رکورد بزنی؟ 🔥</h1><p>به شهربازی اینترنتی ممد خوش اومدی! یک بازی انتخاب کن، بازی کن و رکورد خودت رو بهتر کن. همهٔ بازی‌های این نسخه مستقیماً داخل همین سایت اجرا می‌شن.</p><div class="stats"><div class="stat">موتورهای بازی: <b>۵</b></div><div class="stat">رکوردهای ثبت‌شده: <b id="recordCount">۰</b></div><div class="stat">ترکیب‌های بازی: <b>۱٬۰۰۰</b></div></div></section>
 <div class="notice">🚧 سایت ۵ موتور بازی واقعی دارد و ۵٬۰۰۰ ترکیب قابل اجرا از آن‌ها نمایش می‌دهد. نسخه‌های مستقل با قوانین متفاوت باید در به‌روزرسانی‌های بعدی ساخته و آزمایش شوند.</div>
 <div class="head"><h2>🎯 انتخاب بازی</h2><span class="muted">بازی کن و رکورد بزن</span></div>
 <div class="tools"><input id="search" type="search" placeholder="🔎 اسم بازی رو جست‌وجو کن..." aria-label="جست‌وجوی بازی"><button id="clear">پاک‌کردن</button></div>
@@ -17,9 +17,9 @@
 <div class="grid" id="games"></div><div id="empty" class="empty hidden">بازی‌ای پیدا نشد؛ عبارت دیگری امتحان کن.</div>
 
 <section id="catalog" style="margin-top:36px">
- <div class="head"><h2>🎮 فهرست ۵٬۰۰۰ نسخهٔ بازی</h2><span class="muted">همه در همین صفحه</span></div>
+ <div class="head"><h2>🎮 فهرست ۱٬۰۰۰ نسخهٔ بازی</h2><span class="muted">همه در همین صفحه</span></div>
  <div class="notice">💚 هر کارت دکمهٔ شروع دارد و بازی واقعاً اجرا می‌شود. شفاف بگیم: این ۵٬۰۰۰ مورد فعلاً ترکیب‌های موضوعی و چالشی از ۵ موتور بازی موجودند؛ عنوان‌ها متفاوت‌اند، اما هنوز هرکدام مکانیک کاملاً مستقل ندارند. هدف بعدی ساخت تفاوت واقعی در قوانین هر نسخه است.</div>
- <div class="tools"><input id="catalogSearch" type="search" placeholder="🔎 بین ۵٬۰۰۰ نسخه جست‌وجو کن..." aria-label="جست‌وجو در فهرست نسخه‌های بازی"><span class="pill" id="catalogCount">۵٬۰۰۰ نسخه</span></div>
+ <div class="tools"><input id="catalogSearch" type="search" placeholder="🔎 بین ۱٬۰۰۰ نسخه جست‌وجو کن..." aria-label="جست‌وجو در فهرست نسخه‌های بازی"><span class="pill" id="catalogCount">۱٬۰۰۰ نسخه</span></div>
  <div class="grid" id="catalogList"></div>
 </section>
 <section id="gamebox" class="gamebox"><div class="gamehead"><h2 id="title">بازی</h2><button id="close">✕ بستن بازی</button></div><p id="help"></p><div id="area" class="area"></div></section>
@@ -46,7 +46,7 @@ function clicker(){let score=0,left=10,interval;const status=node('div','muted',
 function breakout(){const c=node('canvas','');c.width=360;c.height=260;c.style.width='min(100%,360px)';const ctx=c.getContext('2d'),status=node('div','muted','برای شروع کلیک کن؛ با موس یا انگشت سکو را حرکت بده.'),start=node('button','primary','شروع / دوباره');let x=160,ball={x:180,y:210,dx:2.4,dy:-2.6},paddle=145,bricks=[],timer,score=0,running=false;function draw(){ctx.fillStyle='#071009';ctx.fillRect(0,0,360,260);ctx.fillStyle='#65ff85';ctx.fillRect(paddle,242,70,8);ctx.beginPath();ctx.arc(ball.x,ball.y,6,0,Math.PI*2);ctx.fill();bricks.forEach(b=>{if(b.on){ctx.fillStyle='#ff7959';ctx.fillRect(b.x,b.y,48,14)}})}function move(e){let r=c.getBoundingClientRect();paddle=Math.max(0,Math.min(290,(e.clientX-r.left)*360/r.width-35))}c.addEventListener('pointermove',move);function reset(){clearInterval(timer);score=0;ball={x:180,y:210,dx:2.4,dy:-2.6};paddle=145;bricks=[];for(let r=0;r<4;r++)for(let col=0;col<6;col++)bricks.push({x:6+col*58,y:20+r*22,on:true});running=true;timer=setInterval(()=>{if(!running)return;ball.x+=ball.dx;ball.y+=ball.dy;if(ball.x<6||ball.x>354)ball.dx*=-1;if(ball.y<6)ball.dy*=-1;if(ball.y>235&&ball.x>=paddle&&ball.x<=paddle+70)ball.dy=-Math.abs(ball.dy);for(let b of bricks)if(b.on&&ball.x>b.x&&ball.x<b.x+48&&ball.y>b.y&&ball.y<b.y+14){b.on=false;ball.dy*=-1;score++;break}if(ball.y>260||bricks.every(b=>!b.on)){running=false;clearInterval(timer);status.textContent=(ball.y>260?'توپ افتاد':'همهٔ آجرها شکسته شد')+'! امتیاز: '+fa(score);save('breakout',score)}else status.textContent='امتیاز: '+fa(score);draw()},16)}start.onclick=reset;c.addEventListener('pointerdown',move);area.append(status,c,start);draw();cleanup=()=>{running=false;clearInterval(timer);c.removeEventListener('pointermove',move);c.removeEventListener('pointerdown',move)}}
 const catalogThemes=['جنگل اسرارآمیز','فضای ناشناخته','قلعهٔ یخی','شهر نئونی','جزیرهٔ گمشده','دنیای شیرینی','زیر آب','سیارهٔ آتشین','سرزمین سایه‌ها','آزمایشگاه مخفی'];
 const catalogLevels=['آسان','معمولی','سخت','خیلی سخت','سرعتی','زمانی','بی‌پایان','دو نفره','امتیازی','معمایی'];
-const catalogTwists=['با یک جان','با زمان محدود','با موانع متحرک','با مسیر تصادفی','با قدرت ویژه'];
+const catalogTwists=['با قوانین پایه'];
 const catalogBases=[{id:'snake',n:'مار بازی',e:'🐍'},{id:'tic',n:'دوز',e:'❎'},{id:'memory',n:'کارت‌های حافظه',e:'🧠'},{id:'reaction',n:'سرعت واکنش',e:'⚡'},{id:'dodge',n:'جاخالی بده',e:'🟩'},{id:'target',n:'شکار هدف',e:'🎯'},{id:'math',n:'چالش ریاضی',e:'➕'},{id:'rps',n:'سنگ کاغذ قیچی',e:'✊'},{id:'clicker',n:'کلیک انفجاری',e:'🖱️'},{id:'breakout',n:'شکستن آجرها',e:'🧱'}];
 const catalogItems=[];
 for(const base of catalogBases)for(const theme of catalogThemes)for(const level of catalogLevels)for(const twist of catalogTwists)catalogItems.push({base,name:base.n+' — '+theme+' — '+level+' '+twist,theme,level,twist});
